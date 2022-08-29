@@ -9,10 +9,23 @@ let  createTodo= () => {
 		let newTask = document.getElementById('new-task-description').value;
 		let li= document.createElement('li');
 		li.appendChild(document.createTextNode(newTask));
-		tasks.appendChild(li);
+		tasks.appendChild(li)
+		if ( li.innerText === '') {
+			li.remove()
+		}
+		let button = document.createElement('button')
+		button.innerText = "x"
+		li.appendChild(button)
+		removeToDo(button)
+		
 		form.reset()
 	}}
   
-  
+	function removeToDo(element) {
+		element.addEventListener('click', () => {
+element.parentNode.remove()
+		})
+	}
+
 
 
